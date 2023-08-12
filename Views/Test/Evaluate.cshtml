@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@{
+    int total = (int)ViewData["Total"];
+    int correctPredictions = (int)ViewData["CorrectPredictions"];
+    double accuracy = (double)correctPredictions / total * 100;
+}
+
+<h1>Your Result</h1>
+<h2>Total: @total</h2>
+<h2>Correct Predictions: @correctPredictions</h2>
+<h2>Accuracy: @accuracy.ToString("F2")%</h2>
+

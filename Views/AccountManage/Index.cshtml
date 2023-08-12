@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>User List</title>
+</head>
+<body>
+    <h2>User List</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Roles</th>
+                <!-- Add other columns if needed -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in ViewBag.UsersWithRoles)
+            {
+                <tr>
+                    <td>@user.Id</td>
+                    <td>@user.UserName</td>
+                    <td>@user.Email</td>
+                    <td>@string.Join(", ", user.Roles)</td>
+                    <!-- Display other columns if needed -->
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
+With this approach, you don't need to create a separate view model class. Instead, you use ViewBag to pass the dynamic data to the view. The view will then display the user data along with their roles in a table. The roles for each user will be displayed as a comma-separated string in the Roles column.
+
+Please note that using ViewBag is not as strongly typed as using a view model, so it's generally recommended to use a view model for a more structured and type-safe approach. But if you prefer a quick and simple solution without updating the view model, ViewBag can be used.
+
+
+
+
+

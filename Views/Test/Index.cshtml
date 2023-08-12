@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Assignment_Online.Models.Assignment>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Create Assignments For Your Student</h1>
+
+<form asp-action="Evaluate">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Question)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Answer)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int counter = 0;
+            }
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Question)
+                    </td>
+                    <td>
+                        <input type="text" name="answers[@counter]" />
+                    </td>
+                </tr>
+                counter++;
+            }
+        </tbody>
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn btn-primary" />
+        </div>
+    </table>
+</form>
